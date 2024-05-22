@@ -6,7 +6,7 @@ import SecondaryButton from '../buttons/secondary-button';
 
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100 px-12">
+    <div className="navbar bg-base-100 parent">
       <div className="flex-1">
         <Link href="/">
           <Image src={icon} width="50" height="50" alt="Logo event aja" />
@@ -30,7 +30,7 @@ export default function Navbar() {
         </div>
         <div>
           <Link
-            href="/"
+            href="/register"
             className="border border-black px-5 py-3 rounded bg-violet-900 text-white"
           >
             Daftar Sekarang
