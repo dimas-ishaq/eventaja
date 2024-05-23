@@ -5,6 +5,7 @@ import {
   FaFacebookSquare,
   FaTwitterSquare,
   FaInstagramSquare,
+  FaExternalLinkSquareAlt,
 } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import Image from 'next/image';
@@ -149,8 +150,11 @@ function Footer() {
                 info@eventaja.com
               </p>
             </div>
-            <div className="link link-hover hover:text-violet-900 text-black block mb-4 cursor-pointer">
-              www.eventaja.com
+            <div className="text-black mb-4 flex items-center cursor-pointer hover:text-violet-900">
+              <FaExternalLinkSquareAlt className="mr-2 text-xl text-black hover:text-violet-900" />
+              <p className="text-black hover:text-violet-900">
+                www.eventaja.com
+              </p>
             </div>
           </div>
         </div>
