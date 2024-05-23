@@ -4,6 +4,7 @@ import { FiUser, FiLock } from 'react-icons/fi';
 import { AiOutlineMail } from 'react-icons/ai';
 import { GoOrganization } from 'react-icons/go';
 import { MdWorkOutline } from 'react-icons/md';
+import { BsTelephone } from 'react-icons/bs';
 import LogoEventAja from '@/assets/img/logo/logo-event-aja.png';
 import Link from 'next/link';
 
@@ -108,13 +109,13 @@ export default function RegisterForm() {
             placeholder="Masukkan nomor telepon"
             className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-violet-900"
           />
-          <MdWorkOutline className="absolute right-4 top-4 text-xl" />
+          <BsTelephone className="absolute right-4 top-4 text-xl" />
         </div>
       </div>
       <div className="mb-6 flex justify-between">
         <div className="flex items-center">
           <input type="checkbox" id="checkbox1" className="mr-4" />{' '}
-          <label for="checkbox1" className="block font-medium">
+          <label htmlFor="checkbox1" className="block font-medium">
             Saya memastikan bahwa informasi yang diberikan adalah benar dan
             akurat
           </label>
