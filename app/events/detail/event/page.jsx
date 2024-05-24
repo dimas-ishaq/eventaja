@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import eventDetailImage from '../../../../assets/img/event_detail_image_1.png'
+import ChatButton from '@/components/buttons/chat-button'
 
 export default function Detail() {
   return (
@@ -9,13 +10,13 @@ export default function Detail() {
         <div className="text-sm breadcrumbs">
           <ul>
             <li><a>Beranda</a></li>
-            <li><a>Event</a></li>
+            <li><a>Events</a></li>
             <li><a>Detail</a></li>
             <li><a>Expo Campus 2024</a></li>
           </ul>
         </div>
         <div className="event__detail_content mt-5">
-          <Image src={eventDetailImage} width={1280} className='rounded' />
+          <Image src={eventDetailImage} width={1280} className='rounded max-h-[480px] object-cover' />
           <h1 className='event_detail_title mt-10 text-3xl text-gray-900 font-bold'>Expo Campus 2024</h1>
           <p className='event__detail_date mt-3'>Tanggal: 22 - 27 Juni 2024</p>
           <p className='event__detail_capacity mt-3'>Kapasistas: 1000 - 3000 Orang</p>
@@ -34,12 +35,12 @@ export default function Detail() {
             <p> Rp. 100.000.000,00</p>
           </div>
         </div>
-        <div className="event_detail_chat grid grid-cols-2">
-          <div className="event__detail_chat_organizer">
-            <p>Chat sebagai Event Organizer</p>
+        <div className="event_detail_chat flex flex-col sm:flex-row sm:gap-x-4 gap-y-2 my-10">
+          <div className="event__detail_chat_owner flex items-center">
+            <ChatButton type={'0'} text={'Chat sebagai Event Organizer'} />
           </div>
           <div className="event__detail_chat_sponsor">
-            <p>Chat sebagai Sponsor</p>
+            <ChatButton type={'1'} text={'Chat sebagai Sponsor'} />
           </div>
 
         </div>
