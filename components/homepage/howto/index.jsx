@@ -9,10 +9,10 @@ export default function HowTo() {
       <Container className="flex flex-col gap-5 ">
         <div className="flex flex-col-reverse md:flex-row justify-between flex-wrap">
           <div className="flex flex-col gap-5 w-full md:w-[40%] mt-10 md:mt-0">
-            <h2 className="text-3xl font-bold mb-6">
+            <h2 className="text-4xl font-bold text-black mb-6">
               Langkah Mudah Memulai di Event Aja
             </h2>
-            <p className="text-xl text-slate-600">
+            <p className="text-lg mt-2.5">
               Mulai dari Evenet Aja dulu. Langkah mudah untuk mendapatkan
               kebutuhan event anda.
             </p>
@@ -24,8 +24,8 @@ export default function HowTo() {
               width={0}
               height={0}
               sizes="100vw"
-              objectFit="cover"
-              style={{ width: '100%', height: 'auto' }}
+              objectFit="contain"
+              style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
             />
           </div>
         </div>
