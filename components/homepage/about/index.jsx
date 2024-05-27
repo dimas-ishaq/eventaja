@@ -6,12 +6,12 @@ import Container from '@/components/container';
 
 export default function About() {
   return (
-    <div className="flex justify-center pt-20">
-      <Container className="flex gap-5">
-        <div className="flex flex-col ">
+    <div className="flex justify-center pt-20 ">
+      <Container className="flex gap-5 flex-wrap-reverse xl:flex-nowrap">
+        <div className="flex flex-col w-full">
           <div className="text-black">
-            <h2 className="text-3xl font-bold mb-6">Tentang Kami</h2>
-            <p className="text-xl text-slate-600">
+            <h2 className="text-4xl font-bold text-black mb-6">Tentang Kami</h2>
+            <p className="text-lg mt-2.5">
               Event Aja adalah platform revolusioner yang menghubungkan Event
               Organizer, Event Owner, dan Sponsor untuk menciptakan kolaborasi
               yang sukses dan berkesinambungan
@@ -19,16 +19,16 @@ export default function About() {
           </div>
           <div className="text-black flex mt-5 gap-5">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Misi Kami</h2>
-              <p className="text-xl text-slate-600">
+              <h2 className="text-4xl font-bold text-black mb-6">Misi Kami</h2>
+              <p className="text-lg mt-2.5">
                 Event Aja adalah platform revolusioner yang menghubungkan Event
                 Organizer, Event Owner, dan Sponsor untuk menciptakan kolaborasi
                 yang sukses dan berkesinambungan
               </p>
             </div>
             <div>
-              <h2 className="text-3xl font-bold mb-6">Cerita Kami</h2>
-              <p className="text-xl text-slate-600">
+              <h2 className="text-4xl font-bold text-black mb-6">Cerita Kami</h2>
+              <p className="text-lg mt-2.5">
                 Event Aja dibentuk untuk mengatasi tantangan dalam industri
                 event. Dengan latar belakang di manajemen, teknologi, dan
                 pemasaran, kami menyatukan semua elemen untuk kesuksesan event.
@@ -39,17 +39,16 @@ export default function About() {
             <MainButton text="Mulai Sekarang" />
           </div>
         </div>
-        <div className="flex-shrink">
-          <div className="relative w-[750px] h-[500px]">
-            <Image
+        <div className="w-full">
+          <Image
               src={AboutUs}
-              alt="Gambaran event"
-              fill
-              objectFit="cover"
-              priority={true}
-              className="rounded-2xl"
+              alt="Shoes"
+              width={0}
+              height={0}
+              sizes="100vw"
+              objectFit="contain"
+              className='w-full h-auto'
             />
-          </div>
         </div>
       </Container>
     </div>

@@ -15,7 +15,7 @@ export default function Blog() {
             </p>
           </div>
 
-          <div className="w-full flex gap-3">
+          <div className="w-full flex gap-3 flex-wrap md:flex-nowrap">
             <BlogCard
               image="/homepage/event-services.png"
               title="10 Tips Efektif dalam Manajemen Event yang Sukses"

@@ -19,10 +19,10 @@ export default function ServicesCard({ image, title, text, href }) {
           />
       </figure>
       <div className="card-body">
-        <h2 className="text-3xl font-bold mb-6 text-center">{title}</h2>
-        <p className="text-xl text-slate-600">{text}</p>
+        <h2 className="text-4xl font-bold mb-6 text-center">{title}</h2>
+        <p className="text-base md:text-lg mt-2.5">{text}</p>
         <div className="card-actions justify-center pt-10">
-          <Link className="text-xl text-fuchsia-600 text-center" href={href}>
+          <Link className="text-base text-fuchsia-600 text-center" href={href}>
             Selengkapnya
           </Link>
         </div>
