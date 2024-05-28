@@ -23,7 +23,7 @@ export default function Navbar() {
           <Link href="/services">Layanan</Link>
         </div>
         <div>
-          <Link href="/blogs">Blog</Link>
+          <Link href="/blog">Blog</Link>
         </div>
         <div>
           <Link href="/contact">Kontak</Link>
