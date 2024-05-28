@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import blogs from '../../../utils/blogs';
+import blogs from '../../../../utils/blogs';
 import { FiExternalLink } from 'react-icons/fi';
 import { SiLinkedin, SiInstagram } from 'react-icons/si';
 import {

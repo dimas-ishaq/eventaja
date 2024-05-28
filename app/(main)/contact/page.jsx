@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import contactHeroImage from '../../assets/img/contact_image_hero.png'
-import contactFormImage from '../../assets/img/contact_form_image.png'
+import contactHeroImage from '../../../assets/img/contact_image_hero.png'
+import contactFormImage from '../../../assets/img/contact_form_image.png'
 import SecondaryButton from '@/components/buttons/secondary-button'
 
 export default function Contact() {
