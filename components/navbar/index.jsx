@@ -42,7 +42,15 @@ export default function Navbar() {
       <Container className="flex ">
         <div className="flex-1">
           <Link href="/">
+            <Image
+              src="/logo.png"
+              width="70"
+              height="70"
+              alt="Logo event aja"
+            />
+
             <Image src="/logo.png" width="70" height="70" alt="Logo event aja" />
+
           </Link>
         </div>
         {isMobile ? (
@@ -109,7 +117,7 @@ export default function Navbar() {
               <Link href="/services">Layanan</Link>
             </div>
             <div>
-              <Link href="/blogs">Blog</Link>
+              <Link href="/blog">Blog</Link>
             </div>
             <div>
               <Link href="/contact">Kontak</Link>
