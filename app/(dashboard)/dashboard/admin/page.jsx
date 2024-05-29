@@ -1,8 +1,11 @@
-import React from 'react'
 
+import React from 'react'
+import ChartAdmin from '@/components/dashboard/chart-admin'
 const Dashboard = () => {
   return (
-    <div>Admin Dashboard</div>
+    <div className='w-full' >
+      <ChartAdmin />
+    </div >
   )
 }
 
