@@ -7,8 +7,8 @@ export default function Testimoni() {
     <div className="flex justify-center pt-20">
         <Container className="flex gap-5 flex-col">
           <div className="w-full">
-            <h2 className="text-4xl font-bold mb-6 text-center">Testimoni</h2>
-            <p className="text-lg  text-slate-600 text-center">
+            <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-6 text-center">Testimoni</h2>
+            <p className="text-sm md:text-lg  text-slate-600 text-center">
               Mulai dari pengalaman pengguna hingga kesuksesan event yang telah
               kami bantu, inilah testimonial dari mereka yang telah bekerja sama
               dengan Event Aja.

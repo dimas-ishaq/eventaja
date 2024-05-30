@@ -19,7 +19,7 @@ export default function Jumbotron() {
           <h1 className="lg:text-9xl md:text-8xl text-5xl">Event Aja</h1>
         </div>
         <div>
-          <h2 className="lg:text-xl  md:text-xl ">
+          <h2 className="lg:text-xl  md:text-lg text-base ">
             Platform Kolaborasi Terbaik untuk Event Organizer, Event Owner, dan
             Sponsor
           </h2>

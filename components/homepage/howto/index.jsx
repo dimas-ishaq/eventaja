@@ -9,10 +9,10 @@ export default function HowTo() {
       <Container className="flex flex-col gap-5 ">
         <div className="flex flex-col-reverse md:flex-row justify-between flex-wrap">
           <div className="flex flex-col gap-5 w-full md:w-[40%] mt-10 md:mt-0">
-            <h2 className="text-4xl font-bold text-black mb-6">
+            <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-black mb-6">
               Langkah Mudah Memulai di Event Aja
             </h2>
-            <p className="text-lg mt-2.5">
+            <p className="text-sm md:text-lg">
               Mulai dari Evenet Aja dulu. Langkah mudah untuk mendapatkan
               kebutuhan event anda.
             </p>
