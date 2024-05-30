@@ -11,8 +11,8 @@ export default function StepCard({ step, title, text }) {
           </div>
         </div>
         <div className="flex flex-col w-full justify-center items-center ">
-          <h3 className="text-xl text-slate-800 text-center">{title}</h3>
-          <p className="text-base text-slate-600">{text}</p>
+          <h3 className="text-base md:text-lg font-bold text-slate-800 text-center">{title}</h3>
+          <p className="text-sm md:text-base text-slate-600">{text}</p>
         </div>
       </Container>
     </div>

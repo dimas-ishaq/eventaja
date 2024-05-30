@@ -26,9 +26,9 @@ export default function TestimoniCard({ image, rate, text, name }) {
             <Image src='/homepage/star.png' width={35} height={35} alt='star' />
             <Image src='/homepage/star.png' width={35} height={35} alt='star' />
         </div>
-        <p className="text-base text-slate-600">{text}</p>
+        <p className="text-sm md:text-lg text-slate-600">{text}</p>
         <div className="card-actions justify-center pt-10">
-          <p className="text-base text-slate-600 text-right">
+          <p className="text-sm md:text-lg text-slate-600 text-right">
             {name}
           </p>
         </div>

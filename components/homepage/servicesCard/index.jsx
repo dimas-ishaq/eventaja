@@ -9,20 +9,25 @@ export default function ServicesCard({ image, title, text, href }) {
       style={{ borderRadius: 0 }}
     >
       <figure>
-          <Image
-            src={image}
-            alt="Shoes"
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{ width: '100%', height: 'auto' }}
-          />
+        <Image
+          src={image}
+          alt="Shoes"
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: '100%', height: 'auto' }}
+        />
       </figure>
       <div className="card-body">
-        <h2 className="text-4xl font-bold mb-6 text-center">{title}</h2>
-        <p className="text-base md:text-lg mt-2.5">{text}</p>
+        <h2
+          className="export default function ServicesCard({ image, title, text, href }) {
+ mb-6 text-center"
+        >
+          {title}
+        </h2>
+        <p className="text-sm md:text-lg mt-2.5">{text}</p>
         <div className="card-actions justify-center pt-10">
-          <Link className="text-base text-fuchsia-600 text-center" href={href}>
+          <Link className="text-sm md:text-lg text-fuchsia-600 text-center" href={href}>
             Selengkapnya
           </Link>
         </div>

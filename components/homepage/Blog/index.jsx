@@ -7,10 +7,10 @@ export default function Blog() {
     <div className="flex justify-center pt-20">
         <Container className="flex gap-5 flex-col">
           <div className="w-full">
-            <h2 className="text-3xl font-bold mb-6 text-center">
+            <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-6 text-center">
               Blog
             </h2>
-            <p className="text-xl text-slate-600 text-center">
+            <p className="text-sm md:text-lg text-slate-600 text-center">
             Mulai dari artikel inspiratif hingga panduan praktis, temukan informasi terbaru seputar event dan tips-tips berguna untuk sukses di industri event.
             </p>
           </div>

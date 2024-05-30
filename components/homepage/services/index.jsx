@@ -7,10 +7,10 @@ export default function Services() {
     <div className="flex justify-center pt-20">
         <Container className="flex gap-5 flex-col">
           <div className="w-full">
-            <h2 className="text-4xl font-bold text-black mb-6 text-center">
+            <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-black mb-6 text-center">
               Layanan Kami
             </h2>
-            <p className="text-lg mt-2.5 text-center">
+            <p className="text-sm md:text-lg mt-2.5 text-center">
               Event Aja menawarkan berbagai layanan untuk mendukung kesuksesan
               event Anda. Mulai dari perencanaan, manajemen, hingga kolaborasi
               dengan sponsor, kami menyediakan solusi lengkap yang dapat
