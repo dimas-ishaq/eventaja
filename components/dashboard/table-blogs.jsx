@@ -1,40 +1,123 @@
 
-
-
+import React, { useState } from 'react'
+import { FaAngleDoubleRight, FaAngleDoubleLeft } from 'react-icons/fa';
 export default function TableBlogs() {
-  const packageData = [
+  const blogs = [
     {
-      name: "Free package",
-      price: 0.0,
-      invoiceDate: `Jan 13,2023`,
-      status: "Paid",
+      title: "The Future of AI in Healthcare",
+      author: "Dr. Emily Clark",
+      content: "In this article, we explore how artificial intelligence is transforming the healthcare industry...",
+      tags: ["AI", "Healthcare", "Technology"],
+      published_date: "2024-05-20",
+      thumbnail_url: "https://example.com/images/thumbnails/ai-healthcare.jpg"
     },
     {
-      name: "Standard Package",
-      price: 59.0,
-      invoiceDate: `Jan 13,2023`,
-      status: "Paid",
+      title: "Top 10 JavaScript Frameworks for 2024",
+      author: "John Doe",
+      content: "With so many JavaScript frameworks available, it can be difficult to choose the right one for your project...",
+      tags: ["JavaScript", "Web Development", "Programming"],
+      published_date: "2024-05-18",
+      thumbnail_url: "https://example.com/images/thumbnails/js-frameworks.jpg"
     },
     {
-      name: "Business Package",
-      price: 99.0,
-      invoiceDate: `Jan 13,2023`,
-      status: "Unpaid",
+      title: "A Guide to Remote Work: Best Practices",
+      author: "Jane Smith",
+      content: "As remote work becomes more common, it's important to adopt best practices to stay productive and connected...",
+      tags: ["Remote Work", "Productivity", "Best Practices"],
+      published_date: "2024-05-15",
+      thumbnail_url: "https://example.com/images/thumbnails/remote-work.jpg"
     },
     {
-      name: "Standard Package",
-      price: 59.0,
-      invoiceDate: `Jan 13,2023`,
-      status: "Pending",
+      title: "Understanding Blockchain Technology",
+      author: "Alex Johnson",
+      content: "Blockchain technology is the backbone of cryptocurrencies, but its applications go far beyond digital currencies...",
+      tags: ["Blockchain", "Cryptocurrency", "Technology"],
+      published_date: "2024-05-12",
+      thumbnail_url: "https://example.com/images/thumbnails/blockchain.jpg"
     },
+    {
+      title: "The Benefits of Mindfulness Meditation",
+      author: "Sarah Lee",
+      content: "Mindfulness meditation can improve your mental and physical health in numerous ways. Here's how to get started...",
+      tags: ["Mindfulness", "Meditation", "Health"],
+      published_date: "2024-05-10",
+      thumbnail_url: "https://example.com/images/thumbnails/mindfulness.jpg"
+    },
+    {
+      title: "How to Improve Your Coding Skills",
+      author: "Michael Brown",
+      content: "Whether you're a beginner or an experienced programmer, there are always ways to improve your coding skills...",
+      tags: ["Coding", "Programming", "Skills Development"],
+      published_date: "2024-05-08",
+      thumbnail_url: "https://example.com/images/thumbnails/coding-skills.jpg"
+    },
+    {
+      title: "The Impact of Climate Change on Global Agriculture",
+      author: "Laura White",
+      content: "Climate change is having a profound impact on agriculture around the world. This article examines the challenges and potential solutions...",
+      tags: ["Climate Change", "Agriculture", "Environment"],
+      published_date: "2024-05-05",
+      thumbnail_url: "https://example.com/images/thumbnails/climate-change.jpg"
+    },
+    {
+      title: "The Rise of Electric Vehicles",
+      author: "David Wilson",
+      content: "Electric vehicles are becoming more popular as technology advances and concerns about climate change grow...",
+      tags: ["Electric Vehicles", "Technology", "Environment"],
+      published_date: "2024-05-02",
+      thumbnail_url: "https://example.com/images/thumbnails/electric-vehicles.jpg"
+    },
+    {
+      title: "Tips for Effective Project Management",
+      author: "Karen Thompson",
+      content: "Effective project management is key to the success of any project. Here are some tips to help you manage your projects more efficiently...",
+      tags: ["Project Management", "Business", "Productivity"],
+      published_date: "2024-04-30",
+      thumbnail_url: "https://example.com/images/thumbnails/project-management.jpg"
+    },
+    {
+      title: "Exploring the Benefits of a Plant-Based Diet",
+      author: "Chris Green",
+      content: "A plant-based diet can offer numerous health benefits. This article explores the reasons why you might consider switching to a plant-based diet...",
+      tags: ["Plant-Based Diet", "Health", "Nutrition"],
+      published_date: "2024-04-25",
+      thumbnail_url: "https://example.com/images/thumbnails/plant-based-diet.jpg"
+    }
   ];
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = blogs
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(indexOfFirstItem, indexOfLastItem);
+
+  const totalPages = Math.ceil(blogs.length / itemsPerPage);
+
+  const handleNextPageClick = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPageClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+
   return (
-    <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+    <div className="rounded-sm border border-stroke bg-slate-50 px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <div className="max-w-full overflow-x-auto">
         <table className="w-full table-auto">
           <thead>
             <tr className="bg-gray-2 text-left dark:bg-meta-4">
-              <th className="min-w-[220px] px-4 py-4 font-medium text-black xl:pl-11">
+              <th className="min-w-[80px] px-4 py-4 font-medium text-black">
+                Thumbnail
+              </th>
+              <th className="min-w-[220px] px-4 py-4 font-medium text-black">
                 Judul
               </th>
               <th className="min-w-[150px] px-4 py-4 font-medium text-black">
@@ -49,29 +132,24 @@ export default function TableBlogs() {
             </tr>
           </thead>
           <tbody>
-            {packageData.map((packageItem, key) => (
+            {currentItems.map((blog, key) => (
               <tr key={key}>
-                <td className="border-b border-[#333] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
+                <td className="border-b border-[#333] px-4 py-5 ">
+                  <img src="https://picsum.photos/60" alt="random-image" />
+                </td>
+                <td className="border-b border-[#333] px-4 py-5 ">
                   <h5 className="font-medium text-black">
-                    {packageItem.name}
+                    {blog.title}
                   </h5>
-                  <p className="text-sm">${packageItem.price}</p>
                 </td>
                 <td className="border-b border-[#333] px-4 py-5 dark:border-strokedark">
                   <p className="text-black">
-                    {packageItem.invoiceDate}
+                    {blog.author}
                   </p>
                 </td>
                 <td className="border-b border-[#333] px-4 py-5 dark:border-strokedark">
-                  <p
-                    className={`inline-flex rounded-full bg-opacity-10 px-3 py-1 text-sm font-medium ${packageItem.status === "Paid"
-                      ? "bg-success text-success"
-                      : packageItem.status === "Unpaid"
-                        ? "bg-danger text-danger"
-                        : "bg-warning text-warning"
-                      }`}
-                  >
-                    {packageItem.status}
+                  <p className="text-black">
+                    {blog.published_date}
                   </p>
                 </td>
                 <td className="border-b border-[#333] px-4 py-5 dark:border-strokedark">
@@ -148,7 +226,26 @@ export default function TableBlogs() {
           </tbody>
         </table>
       </div>
-    </div>
+      <div className="flex items-center justify-center mt-10">
+        <button
+          onClick={handlePreviousPageClick}
+          disabled={currentPage === 1}
+          className="flex items-center gap-3 text-black duration-500 bg-transparent border-2 btn border-violet-900 hover:bg-violet-900 hover:border-transparent hover:text-white"
+        >
+          <FaAngleDoubleLeft />
+        </button>
+        <span className="px-4 text-gray">
+          {currentPage} / {totalPages}
+        </span>
+        <button
+          onClick={handleNextPageClick}
+          disabled={currentPage === totalPages}
+          className="flex items-center gap-3 text-white duration-500 border-2 btn bg-violet-900 hover:bg-transparent hover:border-violet-900 hover:text-black"
+        >
+          <FaAngleDoubleRight />
+        </button>
+      </div>
+    </div >
   );
 };
 

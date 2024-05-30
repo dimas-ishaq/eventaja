@@ -1,77 +1,150 @@
+'use client'
 
-
-
+import React, { useState } from 'react'
+import { FaAngleDoubleRight, FaAngleDoubleLeft } from 'react-icons/fa';
 export default function TableAccount() {
-  const packageData = [
+  const users = [
     {
-      name: "Free package",
-      price: 0.0,
-      invoiceDate: `Jan 13,2023`,
-      status: "Paid",
+      name: "Alice Johnson",
+      phone: "+1-555-123-4567",
+      organization: "Tech Corp",
+      position: "Software Engineer",
+      created_at: "2024-05-30"
     },
     {
-      name: "Standard Package",
-      price: 59.0,
-      invoiceDate: `Jan 13,2023`,
-      status: "Paid",
+      name: "Bob Smith",
+      phone: "+1-555-234-5678",
+      organization: "Health Inc",
+      position: "Data Analyst",
+      created_at: "2024-05-30"
     },
     {
-      name: "Business Package",
-      price: 99.0,
-      invoiceDate: `Jan 13,2023`,
-      status: "Unpaid",
+      name: "Catherine Green",
+      phone: "+1-555-345-6789",
+      organization: "Edu World",
+      position: "Teacher",
+      created_at: "2024-05-30"
     },
     {
-      name: "Standard Package",
-      price: 59.0,
-      invoiceDate: `Jan 13,2023`,
-      status: "Pending",
+      name: "David Brown",
+      phone: "+1-555-456-7890",
+      organization: "Finance Group",
+      position: "Accountant",
+      created_at: "2024-05-30"
     },
+    {
+      name: "Emma Wilson",
+      phone: "+1-555-567-8901",
+      organization: "Media House",
+      position: "Journalist",
+      created_at: "2024-05-30"
+    },
+    {
+      name: "Frank Thomas",
+      phone: "+1-555-678-9012",
+      organization: "Retail Co",
+      position: "Sales Manager",
+      created_at: "2024-05-30"
+    },
+    {
+      name: "Grace Lee",
+      phone: "+1-555-789-0123",
+      organization: "Manufacturing Ltd",
+      position: "Quality Assurance",
+      created_at: "2024-05-30"
+    },
+    {
+      name: "Henry Martin",
+      phone: "+1-555-890-1234",
+      organization: "Tech Corp",
+      position: "Product Manager",
+      created_at: "2024-05-30"
+    },
+    {
+      name: "Isabella Davis",
+      phone: "+1-555-901-2345",
+      organization: "Health Inc",
+      position: "Nurse",
+      created_at: "2024-05-30"
+    },
+    {
+      name: "Jack White",
+      phone: "+1-555-012-3456",
+      organization: "Edu World",
+      position: "Principal",
+      created_at: "2024-05-30"
+    }
   ];
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = users
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(indexOfFirstItem, indexOfLastItem);
+
+  const totalPages = Math.ceil(users.length / itemsPerPage);
+
+  const handleNextPageClick = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPageClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
   return (
-    <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+    <div className="rounded-sm border border-stroke bg-slate-50 px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <div className="max-w-full overflow-x-auto">
         <table className="w-full table-auto">
           <thead>
             <tr className="bg-gray-2 text-left dark:bg-meta-4">
               <th className="min-w-[220px] px-4 py-4 font-medium text-black xl:pl-11">
-                Package
-              </th>
-              <th className="min-w-[150px] px-4 py-4 font-medium text-black">
-                Invoice date
+                Nama/No Telp
               </th>
               <th className="min-w-[120px] px-4 py-4 font-medium text-black">
-                Status
+                Organisasi/Perusahaan
               </th>
               <th className="px-4 py-4 font-medium text-black">
-                Actions
+                Posisi
+              </th>
+              <th className="px-4 py-4 font-medium text-black">
+                Tanggal dibuat
+              </th>
+              <th className="px-4 py-4 font-medium text-black">
+                Action
               </th>
             </tr>
           </thead>
           <tbody>
-            {packageData.map((packageItem, key) => (
+            {currentItems.map((data, key) => (
               <tr key={key}>
                 <td className="border-b border-[#333] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
                   <h5 className="font-medium text-black">
-                    {packageItem.name}
+                    {data.name}
                   </h5>
-                  <p className="text-sm">${packageItem.price}</p>
+                  <p className="text-sm">{data.phone}</p>
                 </td>
                 <td className="border-b border-[#333] px-4 py-5 dark:border-strokedark">
                   <p className="text-black">
-                    {packageItem.invoiceDate}
+                    {data.organization}
                   </p>
                 </td>
                 <td className="border-b border-[#333] px-4 py-5 dark:border-strokedark">
                   <p
-                    className={`inline-flex rounded-full bg-opacity-10 px-3 py-1 text-sm font-medium ${packageItem.status === "Paid"
-                      ? "bg-success text-success"
-                      : packageItem.status === "Unpaid"
-                        ? "bg-danger text-danger"
-                        : "bg-warning text-warning"
-                      }`}
+                    className=" inline-flex rounded-full bg-opacity-10 px-3 py-1 text-sm font-medium bg-success text-success"
                   >
-                    {packageItem.status}
+                    {data.position}
+                  </p>
+                </td>
+                <td className="border-b border-[#333] px-4 py-5 dark:border-strokedark">
+                  <p className="text-black">
+                    {data.created_at}
                   </p>
                 </td>
                 <td className="border-b border-[#333] px-4 py-5 dark:border-strokedark">
@@ -147,6 +220,25 @@ export default function TableAccount() {
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="flex items-center justify-center mt-10">
+        <button
+          onClick={handlePreviousPageClick}
+          disabled={currentPage === 1}
+          className="flex items-center gap-3 text-black duration-500 bg-transparent border-2 btn border-violet-900 hover:bg-violet-900 hover:border-transparent hover:text-white"
+        >
+          <FaAngleDoubleLeft />
+        </button>
+        <span className="px-4 text-gray">
+          {currentPage} / {totalPages}
+        </span>
+        <button
+          onClick={handleNextPageClick}
+          disabled={currentPage === totalPages}
+          className="flex items-center gap-3 text-white duration-500 border-2 btn bg-violet-900 hover:bg-transparent hover:border-violet-900 hover:text-black"
+        >
+          <FaAngleDoubleRight />
+        </button>
       </div>
     </div>
   );

@@ -42,7 +42,8 @@ export default function BlogInput() {
           </div>
         </div>
         <div className="mt-5">
-          <ReactQuill theme="snow" value={value} onChange={setValue} />
+          <p className='font-medium text-sm text-black'>Content</p>
+          <ReactQuill theme="snow" value={value} onChange={setValue} className='mt-2.5' />
         </div>
         <button type='button' className='px-2 py-1 bg-violet-600 hover:bg-violet-500 mt-5 font-medium text-white rounded-md'>
           Buat Postingan
