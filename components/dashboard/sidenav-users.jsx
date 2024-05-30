@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Logo from '../../assets/img/logo/logo-event-aja.png'
 
 const links = [
-  { name: 'Beranda', href: '/dashboard/user', icon: 'IoHome' },
+  { name: 'Dashboard', href: '/dashboard/user', icon: 'IoHome' },
   {
     name: 'Event',
     href: '/dashboard/user/event',
@@ -22,7 +22,7 @@ const links = [
   },
   {
     name: 'Transaksi',
-    href: '/dashboard/user/sponsor',
+    href: '/dashboard/user/transaction',
     icon: 'IoPeopleSharp',
   },
 ];
