@@ -6,16 +6,16 @@ export default function Blog() {
   return (
     <div className="flex justify-center pt-20">
         <Container className="flex gap-5 flex-col">
-          <div className="w-full">
-            <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-6 text-center">
+          <div className="w-full flex flex-col items-center">
+            <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-center">
               Blog
             </h2>
-            <p className="text-sm md:text-lg text-slate-600 text-center">
+            <p className="text-sm md:text-lg text-slate-600 text-center max-w-[800px] mt-2.5">
             Mulai dari artikel inspiratif hingga panduan praktis, temukan informasi terbaru seputar event dan tips-tips berguna untuk sukses di industri event.
             </p>
           </div>
 
-          <div className="w-full flex gap-3 flex-wrap md:flex-nowrap">
+          <div className="w-full flex gap-3 flex-wrap md:flex-nowrap mt-8">
             <BlogCard
               image="/homepage/event-services.png"
               title="10 Tips Efektif dalam Manajemen Event yang Sukses"

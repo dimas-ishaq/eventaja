@@ -17,7 +17,7 @@ export default function Home() {
       <HowTo />
       <Testimoni />
       <Blog />
-      <div className="flex w-full justify-center mb-10">
+      <div className="flex w-full justify-center">
         <Container>
           <Faq />
         </Container>
