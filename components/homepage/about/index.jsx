@@ -35,7 +35,7 @@ export default function About() {
               </p>
             </div>
           </div>
-          <div className="w-40 mt-14">
+          <div className="w-40 mt-10">
             <MainButton text="Mulai Sekarang" />
           </div>
         </div>
