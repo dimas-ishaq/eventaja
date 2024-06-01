@@ -25,7 +25,7 @@ const links = [
 
 export default function SideNav() {
   return (
-    <div className="h-full flex-col px-3 py-4 md:px-2 shadow-md hidden sm:flex">
+    <div className="h-full flex-col px-3 py-4 md:px-2 md:flex shadow-md hidden">
       <Link
         className="mb-2 flex h-20 items-end justify-start rounded-md bg-fuchsia-600/80 after: p-4 md:h-32"
         href="/"

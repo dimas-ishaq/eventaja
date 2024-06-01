@@ -1,5 +1,6 @@
 import React from 'react'
 import { IoNotifications, IoChatbubbleSharp, IoSearchSharp } from "react-icons/io5";
+import { RxHamburgerMenu } from "react-icons/rx";
 import Image from 'next/image';
 import adminProfile from '../../assets/img/profile_admin.png'
 
@@ -7,7 +8,8 @@ export default function Navbar() {
   return (
     <div className="w-full h-20 bg-fuchsia-600 rounded-md justify-center items-center lg:sticky lg:top-0">
       <div className="flex justify-between items-center h-full">
-        <div className="w-96 flex relative justify-center">
+        <button type='button' className='ml-5'><RxHamburgerMenu className='w-6 h-auto text-white' /></button>
+        <div className="w-96 flex justify-center">
           <input type="input" name="search" id="search" placeholder='Type to search' className='ml-5 w-full px-3 py-2.5 rounded-lg bg-fuchsia-600 text-white outline-none placeholder:text-white placeholder:text-sm' />
           <button type="button" className='ml-2'>
             <IoSearchSharp className='w-10 h-auto rounded-full hover:bg-white p-2 hover:text-gray-600 text-white' />
