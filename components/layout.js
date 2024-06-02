@@ -1,4 +1,4 @@
-import SideNav from "./dashboard/sidenav-admin"; 
+import SideNav from "./dashboard/sidenav";
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
