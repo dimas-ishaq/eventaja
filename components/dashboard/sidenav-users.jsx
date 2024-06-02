@@ -4,26 +4,22 @@ import Image from 'next/image';
 import Logo from '../../assets/img/logo/logo-event-aja.png'
 
 const links = [
-  { name: 'Dashboard', href: '/dashboard/user', icon: 'IoHome' },
+  { name: 'Dashboard', href: '/dashboard/user' },
   {
     name: 'Event',
     href: '/dashboard/user/event',
-    icon: 'IoPeopleSharp',
   },
   {
     name: 'Event Organizer',
     href: '/dashboard/user/event-organizer',
-    icon: 'IoPeopleSharp',
   },
   {
     name: 'Sponsor',
     href: '/dashboard/user/sponsor',
-    icon: 'IoPeopleSharp',
   },
   {
     name: 'Transaksi',
     href: '/dashboard/user/transaction',
-    icon: 'IoPeopleSharp',
   },
 ];
 export default function SideNav() {

@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en" data-theme="light">
       <body>
         <div className="flex h-screen flex-col md:flex-row md:overflow-hidden bg-slate-50">
-          <div className="w-full flex-none md:w-64">
+          <div className="w-full flex-none md:w-64 hidden md:block">
             <SideNav />
           </div>
           <div className="flex-grow flex-col p-3 md:overflow-y-auto md:pt-5">

@@ -5,21 +5,18 @@ import Logo from '../../assets/img/logo/logo-event-aja.png'
 
 
 const links = [
-  { name: 'Beranda', href: '/dashboard/admin', icon: 'IoHome' },
+  { name: 'Beranda', href: '/dashboard/admin' },
   {
     name: 'Manajemen Akun',
     href: '/dashboard/admin/account',
-    icon: 'IoPeopleSharp',
   },
   {
     name: 'Transaksi',
     href: '/dashboard/admin/transaction',
-    icon: 'IoPeopleSharp',
   },
   {
     name: 'Blogs',
     href: '/dashboard/admin/blogs',
-    icon: 'IoPeopleSharp',
   },
 ];
 

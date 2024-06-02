@@ -1,4 +1,6 @@
 'use client';
+
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from "clsx";
@@ -19,7 +21,6 @@ export default function NavLinks({ links }) {
               },
             )}
           >
-            <LinkIcon className="w-6" />
             <p className="hidden md:block">{link.name}</p>
           </Link>
         );
