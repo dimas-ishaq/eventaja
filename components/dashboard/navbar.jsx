@@ -3,30 +3,28 @@ import { IoNotifications, IoChatbubbleSharp, IoSearchSharp } from "react-icons/i
 import { RxHamburgerMenu } from "react-icons/rx";
 import Image from 'next/image';
 import adminProfile from '../../assets/img/profile_admin.png'
-import Link from 'next/link';
 
-export default function Navbar() {
+export default function Navbar({ links }) {
+  console.log(links)
   return (
     <div className="w-full h-20 bg-fuchsia-600 rounded-md justify-center items-center lg:sticky lg:top-0">
       <div className="flex justify-between items-center h-full">
-        <div className="drawer md:hidden max-w-[60px]">
+        <div className="drawer md:hidden max-w-[60px] z-10 ">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
             {/* Page content here */}
-            <label htmlFor="my-drawer" className="drawer-button">
+            <label htmlFor="my-drawer" className="drawer-button hover:cursor-pointer">
               <RxHamburgerMenu className=' ml-5 w-6 h-auto text-white' />
             </label>
           </div>
           <div className="drawer-side">
             <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-              {/* Sidebar content here */}
-              <li className='font-medium hover:bg-pink-500 hover:text-white rounded-sm' ><a href='/dashboard/admin/'>Beranda</a></li>
-              <li className='font-medium hover:bg-pink-500 hover:text-white rounded-sm' ><a href='/dashboard/admin/account'>Manajemen Akun</a></li>
-              <li className='font-medium hover:bg-pink-500 hover:text-white rounded-sm' ><a href='/dashboard/admin/transaction'>Transaksi</a></li>
-              <li className='font-medium hover:bg-pink-500 hover:text-white rounded-sm' ><a href='/dashboard/admin/blogs'>Blogs</a></li>
-
-
+              {links.map((link) => {
+                return <li className='font-medium hover:bg-pink-500 hover:text-white rounded-sm'>
+                  <a href={link.href}>{link.name}</a>
+                </li>
+              })}
             </ul>
           </div>
         </div>
