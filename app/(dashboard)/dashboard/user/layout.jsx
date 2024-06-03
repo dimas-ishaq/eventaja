@@ -13,25 +13,29 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const links = [
-    { name: 'Beranda', href: '/dashboard/admin' },
+    { name: 'Dashboard', href: '/dashboard/user' },
     {
-      name: 'Manajemen Akun',
-      href: '/dashboard/admin/account',
+      name: 'Event',
+      href: '/dashboard/user/event',
+    },
+    {
+      name: 'Event Organizer',
+      href: '/dashboard/user/event-organizer',
+    },
+    {
+      name: 'Sponsor',
+      href: '/dashboard/user/sponsor',
     },
     {
       name: 'Transaksi',
-      href: '/dashboard/admin/transaction',
-    },
-    {
-      name: 'Blogs',
-      href: '/dashboard/admin/blogs',
+      href: '/dashboard/user/transaction',
     },
   ];
   return (
     <html lang="en" data-theme="light">
       <body>
         <div className="flex h-screen flex-col md:flex-row md:overflow-hidden bg-slate-50">
-          <div className="w-full flex-none md:w-64 hidden sm:block">
+          <div className="w-full flex-none md:w-64 hidden md:block">
             <SideNav links={links} />
           </div>
           <div className="flex-grow flex-col p-3 md:overflow-y-auto md:pt-5">

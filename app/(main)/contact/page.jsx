@@ -7,9 +7,9 @@ import SecondaryButton from '@/components/buttons/secondary-button'
 export default function Contact() {
   return (
     <div className='flex flex-col w-full justify-center items-center bg-white'>
-      <div className="contact flex flex-col md:w-11/12 px-5 md:px-0 ">
+      <div className="contact flex flex-col md:w-11/12 px-5 md:px-0 container ">
         <Image src={contactHeroImage} width={1280} height={420} alt='Contact Hero Image' className='rounded-md object-cover' />
-        <div className="contact__form mt-16 mb-20 flex justify-center items-center lg:justify-end gap-x-10 ">
+        <div className="contact__form mt-16 mb-20 flex justify-center items-center container gap-x-10 ">
           <div className="contact__form_input flex flex-col">
             <h2 className="contact__title text-3xl font-bold">Hubungi Kami</h2>
             <h4 className='font-medium text-lg mt-2.5'>Layanan Pelanggan :</h4>
