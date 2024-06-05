@@ -1,6 +1,6 @@
 import React from 'react'
-import EventInput from '@/components/dashboard/event-input';
-import TableEvent from '@/components/dashboard/table-event';
+import EventInput from '@/components/dashboard/user/event-input';
+import TableEvent from '@/components/dashboard/user/table-event';
 import Modal from '@/components/dashboard/modal';
 import SearchInput from '@/components/dashboard/search-input';
 
