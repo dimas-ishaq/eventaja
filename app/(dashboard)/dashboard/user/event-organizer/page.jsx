@@ -1,8 +1,8 @@
 import React from 'react'
-import TableEventOrganizer from '@/components/dashboard/table-event_organizer';
+import TableEventOrganizer from '@/components/dashboard/user/table-event_organizer';
 import Modal from '@/components/dashboard/modal';
 import SearchInput from '@/components/dashboard/search-input';
-import EventOrganizerInput from '@/components/dashboard/event_organizer-input';
+import EventOrganizerInput from '@/components/dashboard/user/event_organizer-input';
 
 export default function EventOrganizer() {
   const services = [

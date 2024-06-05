@@ -1,5 +1,5 @@
 import React from 'react'
-import TableAccount from '@/components/dashboard/table-account'
+import TableAccount from '@/components/dashboard/admin/table-account'
 
 
 export default function Account() {

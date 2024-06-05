@@ -1,9 +1,9 @@
 'use client'
 
 import React from 'react'
-import TableBlogs from '@/components/dashboard/table-blogs'
+import TableBlogs from '@/components/dashboard/admin/table-blogs'
 import { IoSearchSharp } from "react-icons/io5";
-import BlogInput from '@/components/dashboard/blog-input';
+import BlogInput from '@/components/dashboard/admin/blog-input';
 import { useState } from 'react';
 
 

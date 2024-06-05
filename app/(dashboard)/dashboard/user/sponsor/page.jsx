@@ -1,8 +1,8 @@
 import React from 'react'
 import Modal from '@/components/dashboard/modal';
 import SearchInput from '@/components/dashboard/search-input';
-import SponsorInput from '@/components/dashboard/sponsor-input';
-import TableSponsor from '@/components/dashboard/table-sponsor';
+import SponsorInput from '@/components/dashboard/user/sponsor-input';
+import TableSponsor from '@/components/dashboard/user/table-sponsor';
 
 export default function Sponsor() {
 
