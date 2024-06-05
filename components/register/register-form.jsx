@@ -1,16 +1,51 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { FiUser, FiLock } from 'react-icons/fi';
 import { AiOutlineMail } from 'react-icons/ai';
 import { GoOrganization } from 'react-icons/go';
 import { MdWorkOutline } from 'react-icons/md';
-import { BsTelephone } from 'react-icons/bs';
+import { BsBuilding, BsHouse, BsTelephone } from 'react-icons/bs';
 import LogoEventAja from '@/assets/img/logo/logo-event-aja.png';
 import Link from 'next/link';
+import { supabase } from '@/utils/conections/supabase';
 
 export default function RegisterForm() {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [position, setPosition] = useState('');
+  const [noTelp, setNoTelp] = useState('');
+  const [organization, setOrganization] = useState('');
+  const [userAddress, setUserAddress] = useState('');
+  const [organizationAddress, setOrganizationAddress] = useState('');
+  const [isSure, setisSure] = useState(false);
+  const [loading,setLoading] = useState(false);
+
+  const submitHandel = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const res = await supabase.from('tbl_user').insert({
+        name: fullName,
+        username: email,
+        password,
+        phone_number: noTelp,
+        organization: organization,
+        position: position,
+        user_address: userAddress,
+        organization_address: organizationAddress,
+        avatar: '',
+      });
+      console.log('res resgister : ', res);
+    } catch (error) {
+      console.log('error saat insert', error);
+    }
+    setLoading(false);
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandel} className={loading ? 'animate-pulse' : ''}>
       <div className="mb-5">
         <div className="flex justify-center">
           <span className="inline-block">
@@ -41,6 +76,8 @@ export default function RegisterForm() {
               maxLength={50}
               placeholder="Masukkan nama lengkap (Maks. 50 Karakter)"
               className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-violet-900"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
             />
             <FiUser className="absolute right-4 top-4 text-xl" />
           </div>
@@ -54,6 +91,8 @@ export default function RegisterForm() {
               required
               placeholder="Masukkan email"
               className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-violet-900"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <AiOutlineMail className="absolute right-4 top-4 text-xl" />
           </div>
@@ -67,6 +106,8 @@ export default function RegisterForm() {
             required
             placeholder="Masukkan password"
             className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-violet-900"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <FiLock className="absolute right-4 top-4 text-xl" />
         </div>
@@ -82,6 +123,8 @@ export default function RegisterForm() {
             required
             placeholder="Masukkan organisasi/perusahaan"
             className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-violet-900"
+            value={organization}
+            onChange={(e) => setOrganization(e.target.value)}
           />
           <GoOrganization className="absolute right-4 top-4 text-xl" />
         </div>
@@ -95,6 +138,8 @@ export default function RegisterForm() {
             required
             placeholder="Masukkan jabatan"
             className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-violet-900"
+            value={position}
+            onChange={(e) => setPosition(e.target.value)}
           />
           <MdWorkOutline className="absolute right-4 top-4 text-xl" />
         </div>
@@ -108,13 +153,49 @@ export default function RegisterForm() {
             required
             placeholder="Masukkan nomor telepon"
             className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-violet-900"
+            value={noTelp}
+            onChange={(e) => setNoTelp(e.target.value)}
           />
           <BsTelephone className="absolute right-4 top-4 text-xl" />
         </div>
       </div>
+      <div className="mb-6">
+        <label className="mb-2.5 block font-medium">Alamat pengguna</label>
+        <div className="relative">
+          <textarea
+            autoComplete="off"
+            required
+            placeholder="Masukkan Alamat pengguna"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-violet-900"
+            value={userAddress}
+            onChange={(e) => setUserAddress(e.target.value)}
+          />
+          <BsHouse className="absolute right-4 top-4 text-xl" />
+        </div>
+      </div>
+      <div className="mb-6">
+        <label className="mb-2.5 block font-medium">Alamat Organisasi</label>
+        <div className="relative">
+          <textarea
+            autoComplete="off"
+            required
+            placeholder="Masukkan Alamat Organisasi"
+            className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-violet-900"
+            value={organizationAddress}
+            onChange={(e) => setOrganizationAddress(e.target.value)}
+          />
+          <BsBuilding className="absolute right-4 top-4 text-xl" />
+        </div>
+      </div>
       <div className="mb-6 flex justify-between">
         <div className="flex items-center">
-          <input type="checkbox" id="checkbox1" className="mr-4" />{' '}
+          <input
+            type="checkbox"
+            id="checkbox1"
+            className="mr-4"
+            value={isSure}
+            onClick={() => setisSure(!isSure)}
+          />{' '}
           <label htmlFor="checkbox1" className="block font-medium">
             Saya memastikan bahwa informasi yang diberikan adalah benar dan
             akurat
@@ -126,7 +207,8 @@ export default function RegisterForm() {
         <input
           type="submit"
           value={'Daftar'}
-          className="w-full cursor-pointer rounded-lg border border-violet-900 bg-violet-900 p-4 text-white transition hover:bg-white hover:text-black"
+          disabled={!isSure}
+          className={`w-full cursor-pointer rounded-lg border ${isSure ? 'border-violet-900 bg-violet-900 p-4 text-white transition hover:bg-white hover:text-black' : 'border-violet-900/50 bg-violet-900/50 p-4 text-white transition '}`}
         />
       </div>
       <div className="mb-5 text-center">
