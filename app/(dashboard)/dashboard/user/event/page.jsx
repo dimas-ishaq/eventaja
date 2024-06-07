@@ -1,10 +1,22 @@
+export const revalidate = 3600
+
+async function getData() {
+  const res = await supabase.from('tbl_event').select();
+  
+ 
+  return res
+}
+
 import React from 'react'
 import EventInput from '@/components/dashboard/event-input';
 import TableEvent from '@/components/dashboard/table-event';
 import Modal from '@/components/dashboard/modal';
 import SearchInput from '@/components/dashboard/search-input';
+import { supabase } from '@/utils/conections/supabase'
 
-export default function Event() {
+export default async  function Event() {
+  const res = await getData();
+  console.log(res);
   const events = [
     {
       id: 1,
@@ -170,7 +182,7 @@ export default function Event() {
         <div className="flex flex-col items-end mt-5">
           <Modal children={<EventInput />} btnName={'+ Buat Event'} />
         </div>
-        <TableEvent events={events} />
+        <TableEvent events={res.data} />
       </div>
 
     </div>
