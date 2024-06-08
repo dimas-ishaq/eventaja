@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import React from 'react'
+import { BsInfo, BsPencil } from 'react-icons/bs'
 
 export default function TableEvent({ events }) {
   return (
@@ -18,6 +20,9 @@ export default function TableEvent({ events }) {
             <th scope="col" class="px-6 py-3">
               Kapasitas
             </th>
+            <th scope="col" class="px-6 py-3">
+              Aksi
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -34,6 +39,20 @@ export default function TableEvent({ events }) {
               </td>
               <td class="px-6 py-4">
                 {event.capacity} Orang
+              </td>
+              <td class="px-6 py-4 flex justify-center items-center gap-2">
+              <Link
+                href={"/dashboard/user/event/" + event.id}
+                className="flex text-white rounded-full justify-center items-center p-2 bg-violet-700 hover:bg-violet-600"
+              >
+                <BsInfo className='text-xl'/>
+              </Link>
+              <Link
+                href={"/dashboard/user/event/edit/" + event.id}
+                className="flex text-white rounded-full justify-center items-center p-2 bg-fuchsia-600 hover:bg-fuchsia-500"
+              >
+                <BsPencil className='text-xl'/>
+              </Link>
               </td>
             </tr>
           ))}
