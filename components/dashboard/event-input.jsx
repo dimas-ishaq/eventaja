@@ -8,7 +8,6 @@ export default function EventInput() {
   const session = useSession();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
   const [file, setFile] = useState('');
 
   const [title, setTitle] = useState('');

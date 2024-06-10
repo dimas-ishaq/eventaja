@@ -1,10 +1,20 @@
+export const revalidate = 10;
+
 import React from 'react'
 import Modal from '@/components/dashboard/modal';
 import SearchInput from '@/components/dashboard/search-input';
 import SponsorInput from '@/components/dashboard/sponsor-input';
 import TableSponsor from '@/components/dashboard/table-sponsor';
+import { supabase } from '@/utils/conections/supabase';
+  async function getData() {
+    const res = await supabase.from('tbl_sponsor').select();
+  
+    return res;
+  }
 
-export default function Sponsor() {
+export default async function Sponsor() {
+
+  const res = await getData();
 
   const sponsor = [
     {
@@ -93,7 +103,7 @@ export default function Sponsor() {
         <div className="flex flex-col items-end mt-5">
           <Modal children={<SponsorInput />} btnName={'+ Buat Sponsor'} />
         </div>
-        <TableSponsor sponsor={sponsor} />
+        <TableSponsor sponsor={res?.data} />
       </div>
     </div>
   )
