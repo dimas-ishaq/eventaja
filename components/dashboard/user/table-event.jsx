@@ -7,6 +7,7 @@ import { BsInfo, BsPencil} from 'react-icons/bs';
 import { MdOutlineDeleteForever } from 'react-icons/md';
 
 export default function TableEvent({ events }) {
+  console.log({events});
   const router = useRouter();
   const deleteHandel = async (id) => {
     if (confirm('Yakin hapus event dengan id :' + id)) {

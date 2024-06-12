@@ -1,3 +1,4 @@
+export const revalidate = 10;
 import React from 'react'
 import EventInput from '@/components/dashboard/user/event-input';
 import TableEvent from '@/components/dashboard/user/table-event';
@@ -8,7 +9,8 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
   async function getData() {
     const session = await getServerSession(authOptions);
-      const res = await supabase.from('tbl_sponsor').select().eq('user_id',session?.user?.id);
+      const res = await supabase.from('tbl_event').select().eq('user_id',session?.user?.id);
+      console.log('res event : ',{res});
   
     return res;
   }
