@@ -20,7 +20,7 @@ export default function RegisterForm() {
   const [userAddress, setUserAddress] = useState('');
   const [organizationAddress, setOrganizationAddress] = useState('');
   const [isSure, setisSure] = useState(false);
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const submitHandel = async (e) => {
     e.preventDefault();
@@ -35,13 +35,27 @@ export default function RegisterForm() {
         position: position,
         user_address: userAddress,
         organization_address: organizationAddress,
-        avatar: '',
+        avatar:
+          'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fuser-profile&psig=AOvVaw1J612v_XlSPTC8HIG6CpV2&ust=1717574842922000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOCB0P--wYYDFQAAAAAdAAAAABAE',
       });
       console.log('res resgister : ', res);
     } catch (error) {
       console.log('error saat insert', error);
     }
+    reset();
     setLoading(false);
+  };
+
+  const reset = () => {
+    setFullName('');
+    setEmail('');
+    setPassword('');
+    setPosition('');
+    setNoTelp('');
+    setOrganization('');
+    setUserAddress('');
+    setOrganizationAddress('');
+    setisSure('');
   };
 
   return (

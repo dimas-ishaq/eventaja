@@ -1,7 +1,7 @@
 import React from 'react'
 import EventOrganizerItem from '@/components/event/EventOrganizerItem'
 
-export default function EventOrganizer() {
+export default function EventOrganizer({eo}) {
   return (
     <div className='mt-20 flex flex-col w-100'>
       <h1 className="event__title text-4xl font-bold text-black">
@@ -11,7 +11,7 @@ export default function EventOrganizer() {
         Mulai dari perencanaan hingga pelaksanaan, kami bekerja sama dengan event organizer profesional untuk memastikan setiap detail event Anda dikelola dengan sempurna.
       </p>
       <div className="event__list mt-[60px] grid  grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-100 gap-x-6">
-        <EventOrganizerItem />
+        <EventOrganizerItem eo={eo} />
       </div>
     </div>
   )

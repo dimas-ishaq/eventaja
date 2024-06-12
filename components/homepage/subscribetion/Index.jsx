@@ -24,7 +24,7 @@ export default function Subscribetion() {
             placeholder="Type here"
             className="input input-bordered w-full max-w-md"
           />
-          <MainButton text="Berlanganan " className="text-white w-[25%]" />
+          <MainButton text="Berlangganan " className="text-white w-[25%]" />
         </div>
       </Container>
     </div>

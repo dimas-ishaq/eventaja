@@ -1,6 +1,6 @@
 import React from 'react'
 import EventItem from '@/components/event/EventItem'
-export default function Event() {
+export default function Event({event}) {
   return (
     <div className='mt-20 flex flex-col w-100'>
       <h1 className="event__title text-4xl font-bold text-black">
@@ -10,7 +10,7 @@ export default function Event() {
         Mulai dari acara musik hingga konferensi bisnis, temukan event-event terbaru yang akan datang dan jangan lewatkan kesempatan untuk berpartisipasi.
       </p>
       <div className="event__list mt-[60px] grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-100 gap-x-6 gap-y-4">
-        <EventItem />
+        <EventItem event={event} />
       </div>
     </div>
   )
