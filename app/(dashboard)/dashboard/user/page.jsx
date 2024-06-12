@@ -1,5 +1,5 @@
 import React from 'react'
-import ChartUser from '@/components/dashboard/chart-user'
+import ChartUser from '@/components/dashboard/user/chart-user'
 
 export default function user() {
   return (

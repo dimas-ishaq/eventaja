@@ -1,20 +1,8 @@
-export const revalidate = 10;
-import React from 'react';
-import TableEventOrganizer from '@/components/dashboard/table-event_organizer';
+import React from 'react'
+import TableEventOrganizer from '@/components/dashboard/user/table-event_organizer';
 import Modal from '@/components/dashboard/modal';
 import SearchInput from '@/components/dashboard/search-input';
-import EventOrganizerInput from '@/components/dashboard/event_organizer-input';
-import { supabase } from '@/utils/conections/supabase';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
-async function getData() {
-  const session = await getServerSession(authOptions);
-  const res = await supabase
-    .from('tbl_eo')
-    .select()
-    .eq('user_id', session?.user?.id);
-  return res;
-}
+import EventOrganizerInput from '@/components/dashboard/user/event_organizer-input';
 
 export default async function EventOrganizer() {
   const res = await getData();

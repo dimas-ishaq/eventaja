@@ -47,12 +47,13 @@ export default function Navbar({ links }) {
             ></label>
             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
               {links.map((link) => {
-                return (
-                  <li className="font-medium hover:bg-pink-500 hover:text-white rounded-sm">
-                    <a href={link.href}>{link.name}</a>
-                  </li>
-                );
+                return <li li className='font-medium hover:bg-pink-500 hover:text-white rounded-sm' >
+                  <a href={link.href}>{link.name}</a>
+                </li>
               })}
+              <li className='font-medium hover:bg-pink-500 hover:text-white rounded-sm' >
+                <a href='/'>Logout</a>
+              </li>
             </ul>
           </div>
         </div>
