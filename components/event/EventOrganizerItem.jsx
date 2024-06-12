@@ -1,47 +1,34 @@
 import React from 'react'
 import Image from 'next/image'
-import eventOrganizerImage from '../../assets/img/event_organizer_image_1.png'
-export default function EventOrganizerItem() {
+import parse from 'html-react-parser';
+import Link from 'next/link';
+export default function EventOrganizerItem({eo}) {
 
-  const events = [
-    {
-      image: eventOrganizerImage,
-      name: 'PT. Kreatif Event Mandiri',
-      description: 'PT. Kreatif Event Mandiri memiliki pengalaman bertahun-tahun dalam menyelenggarakan event besar seperti konferensi, pameran, dan konser. Kami berkomitmen untuk memberikan layanan terbaik dan memastikan setiap event berjalan lancar dan sukses.',
-      author: 'Jane Doe, CEO'
-    },
-    {
-      image: eventOrganizerImage,
-      name: 'PT. Kreatif Event Mandiri',
-      description: 'PT. Kreatif Event Mandiri memiliki pengalaman bertahun-tahun dalam menyelenggarakan event besar seperti konferensi, pameran, dan konser. Kami berkomitmen untuk memberikan layanan terbaik dan memastikan setiap event berjalan lancar dan sukses.',
-      author: 'Jane Doe, CEO'
-    },
-    {
-      image: eventOrganizerImage,
-      name: 'PT. Kreatif Event Mandiri',
-      description: 'PT. Kreatif Event Mandiri memiliki pengalaman bertahun-tahun dalam menyelenggarakan event besar seperti konferensi, pameran, dan konser. Kami berkomitmen untuk memberikan layanan terbaik dan memastikan setiap event berjalan lancar dan sukses.',
-      author: 'Jane Doe, CEO'
-    },
-    {
-      image: eventOrganizerImage,
-      name: 'PT. Kreatif Event Mandiri',
-      description: 'PT. Kreatif Event Mandiri memiliki pengalaman bertahun-tahun dalam menyelenggarakan event besar seperti konferensi, pameran, dan konser. Kami berkomitmen untuk memberikan layanan terbaik dan memastikan setiap event berjalan lancar dan sukses.',
-      author: 'Jane Doe, CEO'
-    },
-  ]
+  const events = eo
+  console.log('eo : ',{events});
 
 
   return (
     events.map((event, index) => (
       <div key={index} className='event__item flex flex-col rounded-md shadow-md'>
-        <Image src={event.image} alt={event.name} className='object-fit rounded-md' />
+        <Image
+        src={
+          'https://vlljvshssngonqwagiho.supabase.co/storage/v1/object/public/' +
+          event.picture
+        }
+        alt={event.title}
+        className="object-cover rounded-md w-full h-60"
+        width={0}
+        height={0}
+        sizes="100vw"
+      />
         <div className="event__item_detail px-5 py-5">
           <h2 className='event__item_title text-lg font-semibold'>
-            {event.name}
+          <Link href={`/events/detail/event-organizer/${event.id}`} >{event.title}</Link>
           </h2>
           <div className="event__item_description">
             <p className='text-base mt-2.5 font-semibold'>Deskripsi :</p>
-            <p className='text-sm font-normal mt-2.5 lg:max-w-[290px] line-clamp-5 text-gray-600'>{event.description}</p>
+            <div className='text-sm font-normal mt-2.5 lg:max-w-[290px] line-clamp-5 text-gray-600'>{parse(event.description)}</div>
             <p className='text-xs text-right mt-5 font-medium'>{event.author}</p>
           </div>
         </div>

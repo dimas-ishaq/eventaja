@@ -50,7 +50,7 @@ export default function TableEvent({ events }) {
               <td class="px-6 py-4">{event.capacity} Orang</td>
               <td class="px-6 py-4 flex justify-center items-center gap-2">
                 <Link
-                  href={'/dashboard/user/event/' + event.id}
+                  href={`/events/detail/event/${event.id}`}
                   className="flex text-white rounded-full justify-center items-center p-2 bg-violet-700 hover:bg-violet-600"
                 >
                   <BsInfo className="text-xl" />

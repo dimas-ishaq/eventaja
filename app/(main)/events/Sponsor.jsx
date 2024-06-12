@@ -1,6 +1,6 @@
 import React from 'react'
 import SponsorItem from '@/components/event/SponsorItem'
-export default function Sponsor() {
+export default function Sponsor({sponsor}) {
   return (
     <div className='mt-20 flex flex-col w-100'>
       <h1 className="event__title text-4xl font-bold text-black">
@@ -10,7 +10,7 @@ export default function Sponsor() {
         Mulai dari dukungan finansial hingga kemitraan strategis, sponsor kami memainkan peran penting dalam kesuksesan setiap event. Kami berterima kasih atas kontribusi mereka yang luar biasa.
       </p>
       <div className="event__list mt-[60px] grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-100 gap-x-6 gap-y-4">
-        <SponsorItem />
+        <SponsorItem sponsor={sponsor} />
       </div>
     </div>
   )

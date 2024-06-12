@@ -6,8 +6,13 @@ import SearchInput from '@/components/dashboard/search-input';
 import SponsorInput from '@/components/dashboard/sponsor-input';
 import TableSponsor from '@/components/dashboard/table-sponsor';
 import { supabase } from '@/utils/conections/supabase';
-  async function getData() {
-    const res = await supabase.from('tbl_sponsor').select();
+import { getSession } from 'next-auth/react';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+  async function getData(context) {
+    const session = await getServerSession(authOptions);
+    const res = await supabase.from('tbl_sponsor').select().eq('user_id',session?.user?.id);
+    console.log('session server ', session);
   
     return res;
   }
@@ -16,68 +21,6 @@ export default async function Sponsor() {
 
   const res = await getData();
 
-  const sponsor = [
-    {
-      "id": 1,
-      "name": "TechCo",
-      "description": "Sponsorship for tech conference",
-      "budget_start": 10000,
-      "budget_end": 20000,
-      "event_capacity_minimum": 100,
-      "user_id": 1,
-      "pictures": "conference_sponsor.png",
-      "support": "Financial support, promotional materials",
-      "policies": "Sponsor must be mentioned in all event promotions",
-      "created_at": "2024-05-01T10:00:00Z"
-    },
-    {
-      "id": 2,
-      "name": "Sportify",
-      "description": "Sports event sponsorship",
-      "budget_start": 5000,
-      "budget_end": 15000,
-      "event_capacity_minimum": 500,
-      "user_id": 2,
-      "pictures": "sports_event_sponsor.jpg",
-      "support": "Equipment, financial support",
-      "policies": "Sponsor logos must be displayed on all athlete jerseys",
-      "created_at": "2024-05-02T11:00:00Z"
-    },
-    {
-      "id": 3,
-      "name": "MusicFest",
-      "description": "Music festival sponsor",
-      "budget_start": 20000,
-      "budget_end": 50000,
-      "event_capacity_minimum": 1000,
-      "user_id": 3,
-      "pictures": "music_festival_sponsor.jpg",
-      "support": "Financial support, VIP passes",
-      "policies": "Sponsor banners must be placed on stage",
-      "created_at": "2024-05-03T12:00:00Z"
-    },
-    {
-      "id": 4,
-      "name": "ArtExhibit",
-      "description": "Art exhibition sponsor",
-      "budget_start": 3000,
-      "budget_end": 10000,
-      "event_capacity_minimum": 50,
-      "user_id": 4,
-      "pictures": "art_exhibition_sponsor.jpg",
-      "support": "Venue, financial support",
-      "policies": "Sponsor name must be included in all exhibit catalogs",
-      "created_at": "2024-05-04T13:00:00Z"
-    },
-    {
-      "id": 5,
-      "name": "FoodFest",
-      "description": "Food festival sponsor",
-      "budget_start": 8000,
-      "budget_end": 20000,
-      "event_capacity_minimum": 300,
-
-    }]
 
 
 

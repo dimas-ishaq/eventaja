@@ -3,8 +3,11 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Container from '../container';
+import { useSession } from 'next-auth/react';
 
 export default function Navbar() {
+  const session = useSession();
+  console.log('session',{session});
   const [isMobile, setIsMobile] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -120,12 +123,22 @@ export default function Navbar() {
               <Link href="/contact">Kontak</Link>
             </div>
             <div>
-              <Link
-                href="/login"
-                className="border border-black px-5 py-3 rounded bg-violet-900 text-white"
-              >
-                Daftar Sekarang
-              </Link>
+              {session.status !== 'loading' &&
+                (session.status === 'authenticated' ? (
+                  <Link
+                    href="/dashboard/user/"
+                    className="border border-black px-5 py-3 rounded bg-violet-900 text-white"
+                  >
+                    Dashboard
+                  </Link>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="border border-black px-5 py-3 rounded bg-violet-900 text-white"
+                  >
+                    Daftar Sekarang
+                  </Link>
+                ))}
             </div>
           </div>
         )}

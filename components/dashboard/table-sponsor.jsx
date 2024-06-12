@@ -23,9 +23,6 @@ export default function TableSponsor({ sponsor }) {
               Sponsor
             </th>
             <th scope="col" class="px-6 py-3">
-              Deskripsi
-            </th>
-            <th scope="col" class="px-6 py-3">
               Event Capacity
             </th>
             <th scope="col" class="px-6 py-3">
@@ -45,20 +42,19 @@ export default function TableSponsor({ sponsor }) {
               >
                 {item.title}
               </th>
-              <td class="px-6 py-4">{item.description}</td>
               <td class="px-6 py-4">{item.event_capacity_minimum} Orang</td>
               <td class="px-6 py-4">
                 IDR {item.budget_start} - {item.budget_start}
               </td>
               <td class="px-6 py-4 flex justify-center items-center gap-2">
                 <Link
-                  href={'/dashboard/user/sponsor/' + item.id}
+                  href={`/events/detail/sponsor/${item.id}`}
                   className="flex text-white rounded-full justify-center items-center p-2 bg-violet-700 hover:bg-violet-600"
                 >
                   <BsInfo className="text-xl" />
                 </Link>
                 <Link
-                  href={'/dashboard/user/sponsor/edit/' + item.id}
+                  href={'/dashboard/user/sponsor/' + item.id}
                   className="flex text-white rounded-full justify-center items-center p-2 bg-fuchsia-600 hover:bg-fuchsia-500"
                 >
                   <BsPencil className="text-xl" />
