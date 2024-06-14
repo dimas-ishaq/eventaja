@@ -10,7 +10,6 @@ import { authOptions } from '@/app/api/auth/[...nextauth]/route';
   async function getData() {
     const session = await getServerSession(authOptions);
       const res = await supabase.from('tbl_event').select().eq('user_id',session?.user?.id);
-      console.log('res event : ',{res});
   
     return res;
   }

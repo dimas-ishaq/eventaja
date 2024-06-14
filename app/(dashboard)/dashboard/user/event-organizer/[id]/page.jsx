@@ -24,7 +24,6 @@ export default function EventOrganizerInput() {
   const [eo_type, setEo_type] = useState([]);
   const getServicesType = async () => {
     const res = await supabase.from('tbl_eo_type').select('*');
-    console.log({ res });
     setEo_type(res.data);
   };
   const getSingleData = async () => {
@@ -59,7 +58,6 @@ export default function EventOrganizerInput() {
         url = data?.data?.fullPath;
       }
 
-      console.log({ url });
       const res = await supabase
         .from('tbl_eo')
         .update({
@@ -75,7 +73,6 @@ export default function EventOrganizerInput() {
         })
         .eq('id', id);
 
-        console.log('res eo : ',{res});
     } catch (error) {
       console.log(error);
     }
