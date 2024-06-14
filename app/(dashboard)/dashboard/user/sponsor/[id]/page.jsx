@@ -53,7 +53,6 @@ export default function EditSponsor() {
         url = data?.data?.fullPath;
       }
 
-      console.log({ url });
       const res = await supabase.from('tbl_sponsor').update({
         title,
         description,
@@ -64,7 +63,6 @@ export default function EditSponsor() {
         picture: url,
         is_show: true,
       }).eq('id',id);
-      console.log('sponsor res : ', res);
     } catch (error) {
       console.log(error);
     }

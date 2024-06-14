@@ -53,7 +53,6 @@ export default function EditEvent() {
         url = data?.data?.fullPath;
       }
 
-      console.log({ url });
       const res = await supabase.from('tbl_event').update({
         title,
         capacity,
@@ -65,7 +64,6 @@ export default function EditEvent() {
         picture: url,
         is_show: true,
       }).eq('id',id);
-      console.log('edit : ',{res});
     } catch (error) {
       console.log(error);
     }
