@@ -1,10 +1,9 @@
-import { Inter } from 'next/font/google';
+
 import '@/utils/styles/globals.css';
 import SideNav from '@/components/dashboard/sidenav';
 import Navbar from '@/components/dashboard/navbar';
 import Provider from '@/components/context/Provider';
 
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Event aja',
