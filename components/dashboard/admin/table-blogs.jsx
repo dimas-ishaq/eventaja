@@ -1,4 +1,4 @@
-
+"use client"
 import React, { useState } from 'react'
 import { FaAngleDoubleRight, FaAngleDoubleLeft } from 'react-icons/fa';
 export default function TableBlogs() {

@@ -3,7 +3,7 @@ import ChatButton from '@/components/buttons/chat-button';
 import { supabase } from '@/utils/conections/supabase';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 export default function DetailEvent() {

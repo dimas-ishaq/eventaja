@@ -1,9 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import TableBlogs from '@/components/dashboard/admin/table-blogs';
 import { IoSearchSharp } from 'react-icons/io5';
-import BlogInput from '@/components/dashboard/admin/blog-input';
+import dynamic from 'next/dynamic';
+
+const BlogInput = dynamic(() => import('@/components/dashboard/admin/blog-input'), { ssr: false });
+const TableBlogs = dynamic(() => import('@/components/dashboard/admin/table-blogs'), { ssr: false });
 
 export default function BlogsPage() {
   const [isOpen, setOpen] = useState(false);
