@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import ChartUser from '@/components/dashboard/user/chart-user'
 

@@ -46,8 +46,10 @@ export default function Navbar({ links }) {
               className="drawer-overlay"
             ></label>
             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-              {links.map((link) => {
-                return <li key={link.name} className='font-medium hover:bg-pink-500 hover:text-white rounded-sm' >
+
+              {links.map((link, index) => {
+                return <li className='font-medium hover:bg-pink-500 hover:text-white rounded-sm' key={index} >
+
                   <a href={link.href}>{link.name}</a>
                 </li>
               })}

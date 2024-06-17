@@ -1,4 +1,3 @@
-
 import React from 'react'
 import ChartAdmin from '@/components/dashboard/admin/chart-admin'
 const Dashboard = () => {
