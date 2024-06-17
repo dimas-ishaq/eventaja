@@ -1,5 +1,5 @@
 export const revalidate = 10;
-import React from 'react'
+import React from 'react';
 import EventInput from '@/components/dashboard/user/event-input';
 import TableEvent from '@/components/dashboard/user/table-event';
 import Modal from '@/components/dashboard/modal';
@@ -7,12 +7,15 @@ import SearchInput from '@/components/dashboard/search-input';
 import { supabase } from '@/utils/conections/supabase';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
-  async function getData() {
-    const session = await getServerSession(authOptions);
-      const res = await supabase.from('tbl_event').select().eq('user_id',session?.user?.id);
-  
-    return res;
-  }
+async function getData() {
+  const session = await getServerSession(authOptions);
+  const res = await supabase
+    .from('tbl_event')
+    .select()
+    .eq('user_id', session?.user?.id);
+
+  return res;
+}
 
 export default async function Event() {
   const res = await getData();

@@ -3,8 +3,10 @@
 
 import React from 'react'
 import { IoEyeOutline, IoCalendarOutline, IoLogoBuffer, IoHandLeftOutline } from "react-icons/io5";
-import Chart from "react-apexcharts";
+import dynamic from 'next/dynamic';
 
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 export default function ChartUser() {
   const dataChart = {
     options: {
